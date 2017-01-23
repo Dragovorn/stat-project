@@ -54,6 +54,7 @@ public class Game {
                 return;
             }
 
+            g.setFont(new Font(Font.DIALOG, Font.BOLD, 25));
             g.drawString((this.winner == 1 ? "You Won!" : "You Lost!"), 100, 50);
         } else if (this.menu == Menu.PLAYING) {
             drawFigure(Color.RED, 30, 449, g);
@@ -91,6 +92,7 @@ public class Game {
                         this.outstandingQuestion = false;
                         this.correct = false;
                         this.questionPool = new ArrayList<>();
+                        this.winner = 1;
                         initQuestions();
                     }
                 } else {
@@ -106,6 +108,7 @@ public class Game {
                         this.outstandingQuestion = false;
                         this.correct = false;
                         this.questionPool = new ArrayList<>();
+                        this.winner = 2;
                         initQuestions();
                     }
                 }
@@ -227,7 +230,7 @@ public class Game {
         this.questionPool.add(new Question("What is a segmented bar graph best used for?", "To present data as percents on a circular graph", "To compare data as a whole", "To display the distribution of data based on the 5 number summary", "To compare different classes to the whole", 1));
         this.questionPool.add(new Question("If it only rains on mondays, what is the probability that it will rain in a two week period?", "7/14", "2/14", "12/14", "1/14", 1));
         this.questionPool.add(new Question("What is the method of modeling chance behavior that accurately mimics the situation being considered?", "Experiment", "Census", "Simulation", "Simple Random Sample", 2));
-        this.questionPool.add(new Question("When two events cannot happen at the same time this is called ______", "Disjointed events", "Independent events", "All of the above", "None of the above", 0));
+        this.questionPool.add(new Question("When two events cannot happen at the same time this is called ______", "Disjointed events", "Independent events", "The last two answers", "None of these", 0));
         this.questionPool.add(new Question("Why would you use the LLN (law of large numbers) theorem when doing an experiment?", "To make sure that you have the least amount of variation in your results of your experiment.", "So you have a big experiment.", "To make your experiment look official.", "", 0));
         this.questionPool.add(new Question("The probability of A given that B has occurred is called ________", "Conditional probability", "Simple random sample", "Conditional distribution", "Probability distribution", 0));
         this.questionPool.add(new Question("Let Z be a standard normal random variable.\nFind z* such that the probability that a randomly selected value of z is greater then z is .35", "-.39", ".39", "-.56", ".56", 0));
