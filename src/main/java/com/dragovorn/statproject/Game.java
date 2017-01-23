@@ -16,6 +16,7 @@ public class Game {
 
     private static Game instance;
 
+    private final int MAX_HP = 6;
     private int p1;
     private int p2;
     private int winner;
@@ -27,8 +28,8 @@ public class Game {
         instance = this;
 
         this.menu = Menu.MAIN;
-        this.p1 = 5;
-        this.p2 = 5;
+        this.p1 = this.MAX_HP;
+        this.p2 = this.MAX_HP;
         this.winner = 0;
         this.outstandingQuestion = false;
         this.correct = false;
@@ -87,8 +88,8 @@ public class Game {
 
                     if (this.p2 == 0) {
                         this.menu = Menu.MAIN;
-                        this.p1 = 5;
-                        this.p2 = 5;
+                        this.p1 = this.MAX_HP;
+                        this.p2 = this.MAX_HP;
                         this.outstandingQuestion = false;
                         this.correct = false;
                         this.questionPool = new ArrayList<>();
@@ -103,8 +104,8 @@ public class Game {
 
                     if (this.p1 == 0) {
                         this.menu = Menu.MAIN;
-                        this.p1 = 5;
-                        this.p2 = 5;
+                        this.p1 = this.MAX_HP;
+                        this.p2 = this.MAX_HP;
                         this.outstandingQuestion = false;
                         this.correct = false;
                         this.questionPool = new ArrayList<>();
@@ -120,11 +121,10 @@ public class Game {
             g.setFont(new Font(Font.DIALOG, Font.BOLD, 60));
             g.drawString("Rules!", 100, 100);
             g.setFont(new Font(Font.DIALOG, Font.BOLD, 15));
-            g.drawString("1) Select A, B, C, or D, for the answer prompt", 6, 200);
-            g.drawString("if you don't know you can take an L by selecting option L", 6, 214);
-            g.drawString("2) Each correct answer grants a hit on your enemy, each wrong", 6, 228);
-            g.drawString("answer grants your enemy a hit on you!", 6, 242);
-            g.drawString("3) Defeat your enemy before they defeat you!", 6, 256);
+            g.drawString("1) Select the correct answer to the question ", 6, 200);
+            g.drawString("2) Each correct answer grants a hit on your enemy, each wrong", 6, 214);
+            g.drawString("answer grants your enemy a hit on you!", 6, 228);
+            g.drawString("3) Defeat your enemy before they defeat you!", 6, 242);
             g.setFont(new Font(Font.DIALOG, Font.BOLD, 20));
             g.drawString("Press 'Esc' to return to the Menu", 10, 350);
         }
