@@ -16,7 +16,7 @@ public class Game {
 
     private static Game instance;
 
-    private final int MAX_HP = 6;
+    private final int MAX_HP = 5;
     private int p1;
     private int p2;
     private int winner;
@@ -151,9 +151,7 @@ public class Game {
 
                 int answer = JOptionPane.showOptionDialog(null, question.getQuestionText(), "Question", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options.toArray(), options.toArray()[4]);
 
-                if (answer == question.getCorrect()) {
-                    this.correct = true;
-                }
+                this.correct = answer == question.getCorrect();
 
                 this.outstandingQuestion = true;
             }
